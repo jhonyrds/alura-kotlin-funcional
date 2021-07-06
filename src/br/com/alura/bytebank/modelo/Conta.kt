@@ -2,8 +2,6 @@ package br.com.alura.bytebank.modelo
 
 import br.com.alura.bytebank.exception.FalhaAutenticacaoException
 import br.com.alura.bytebank.exception.SaldoInsuficienteException
-import java.lang.NumberFormatException
-import java.lang.RuntimeException
 
 abstract class Conta(
     var titular: Cliente,
@@ -18,7 +16,6 @@ abstract class Conta(
     }
 
     init {
-        println("Criando conta")
         total++
     }
 
@@ -40,7 +37,7 @@ abstract class Conta(
                 mensagem = "O saldo é insuficiente, saldo atual: $saldo, valor a ser subtraído $valor"
             )
         }
-        if (!autentica(senha)){
+        if (!autentica(senha)) {
             throw FalhaAutenticacaoException()
         }
 //        throw NumberFormatException()
